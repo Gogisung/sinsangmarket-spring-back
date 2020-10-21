@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 @Entity
 @Getter @Setter
 @DiscriminatorValue("FB")
-public class FemaleBag {
+public class FemaleBag extends Item{
     private String leather;
     private String shoulderBag;
     private String toteBag;
