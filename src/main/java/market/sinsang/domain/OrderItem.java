@@ -7,6 +7,7 @@ import market.sinsang.domain.item.Item;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "order_item")
 @Getter @Setter
 public class OrderItem {
 
