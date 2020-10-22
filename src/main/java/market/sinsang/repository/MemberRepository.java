@@ -1,5 +1,6 @@
 package market.sinsang.repository;
 
+import lombok.RequiredArgsConstructor;
 import market.sinsang.domain.Member;
 import org.springframework.stereotype.Repository;
 
@@ -8,13 +9,14 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
-    @PersistenceContext
-    private EntityManager em;
+
+    private final EntityManager em;
 
     public Long save(Member member) {
-            em.persist(member);
-            return member.getId();
+        em.persist(member);
+        return member.getId();
     }
 
     public Member findOne(Long id) {

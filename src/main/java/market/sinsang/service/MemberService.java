@@ -1,5 +1,6 @@
 package market.sinsang.service;
 
+import lombok.RequiredArgsConstructor;
 import market.sinsang.domain.Member;
 import market.sinsang.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,12 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class MemberService {
 
-    @Autowired
-    MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
+    @Transactional
     public Long join(Member member) {
         validateDuplicateMember(member);
         memberRepository.save(member);
